@@ -12,9 +12,7 @@ export default function MovieDetails() {
   const posterHeight = 445;
 
   const { favorites, addFavorite, removeFavorite } = useFavorites();
-  let isFavorite=false;
-  if (movie)
-    isFavorite = favorites.some(fav => fav.imdbID === movie.imdbID);
+  const isFavorite=favorites.some(fav => fav.imdbID === movie?.imdbID);
 
   useEffect(() => {
     const fetchMovie = async () => {
