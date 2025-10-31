@@ -2,12 +2,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
 import { FavoritesProvider } from './contexts/FavoritesContext';
+import './App.css';
 
 export default function App() {
   return (
     <FavoritesProvider>
       <Router>
-        <h1>React Flix</h1>
+        <div className='areatitulo'>
+          <div className='titulo'>
+            React Flix
+          </div>
+        </div>
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movie/:id" element={<MovieDetails />} />

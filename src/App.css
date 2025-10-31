@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -39,4 +38,149 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.areatitulo{
+  background-color: brown;
+  padding: 1rem;
+  margin-bottom: 5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.titulo {
+  font-size: 4.2rem;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: darkslategrey;
+  margin-top: 10rem;
+}
+
+input {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  width: 300px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px; 
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  width: 100px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  background-color: brown;
+  color: white;
+  border-radius: 4px; 
+}
+
+
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.movie-card {
+  cursor: pointer;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 2px 8px #0001;
+  text-align: center;
+  transition: box-shadow 0.2s;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.movie-card-bg {
+  background-image: var(--poster-url);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-shadow: 0 2px 8px #000a;
+}
+
+.movie-card-noimg {
+  background: #bbb;
+}
+
+.movie-card-overlay {
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  border-radius: 0 0 8px 8px;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-card h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  text-shadow: 0 2px 8px #000a;
+}
+
+
+
+
+.movie-details-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 120PX;
+}
+
+.movie-details-poster {
+  width: 300px;
+  height: 445px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  object-fit: cover;
+  background: #ccc;
+}
+
+.movie-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  text-align: justify;
+}
+
+@media (max-width: 700px) {
+  .movie-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .movie-details-poster {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+    margin: 0 auto;
+  }
 }

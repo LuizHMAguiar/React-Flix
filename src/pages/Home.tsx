@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { searchMovies } from '../services/api';
 import { type Movie } from '../types';
+import '../App.css';
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -13,12 +14,13 @@ export default function Home() {
     e.preventDefault();
     const results = await searchMovies(query);
     console.log('Results:', results);
+    setMovies([])
     setMovies(results);
   };
 
   return (
     <div>
-      <h1>Buscador de Filmes</h1>
+      <h1>Busque por um filme</h1>
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -28,12 +30,19 @@ export default function Home() {
         <button type="submit">Buscar</button>
       </form>
 
-      <div>
+      <div className="movies-grid">
         {movies.map((movie) => (
-          <div key={movie.imdbID} onClick={() => navigate(`/movie/${movie.imdbID}`)}>
-            <h3>{movie.Title}</h3>
-            <img src={movie.Poster} alt={movie.Title} width="100" />
-          </div>))}
+          <div
+            key={movie.imdbID}
+            onClick={() => navigate(`/movie/${movie.imdbID}`)}
+            className={`movie-card movie-card-bg${!movie.Poster || movie.Poster === 'N/A' ? ' movie-card-noimg' : ''}`}
+            style={movie.Poster && movie.Poster !== 'N/A' ? { ['--poster-url' as any]: `url(${movie.Poster})` } : {}}
+          >
+            <div className="movie-card-overlay">
+              <h3>{movie.Title}</h3>
+            </div>
+          </div>
+        ))}
       </div>
     </div>);
 }
